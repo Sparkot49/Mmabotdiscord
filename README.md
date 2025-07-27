@@ -1,11 +1,12 @@
 # MMA Discord Bot
 
-This project is an inter-server MMA combat bot for Discord, built with **discord.js** and **MongoDB**.
+This project is an inter-server MMA combat bot for Discord built with **discord.js** and **MongoDB**.
 
 ## Features
 
-- Matchmaking with `/fight`
-- User profiles with Elo and statistics using `/profile`
+- Matchmaking with `/fight` including an option to duel an AI
+- Turn based combat with HP and mana management
+- User profiles with leagues, Elo and statistics using `/profile`
 - Clan system with `/clan`
 - Economy commands like `/balance`
 - Premium and admin commands
@@ -26,4 +27,4 @@ This project is an inter-server MMA combat bot for Discord, built with **discord
 
 ## Notes
 
-The project contains basic implementations as a starting point and does not cover the entire specification. Further development is required to implement full combat mechanics and matchmaking logic.
+The bot implements a simplified combat engine. Additional features such as advanced matchmaking or consumables can be added from this base.
