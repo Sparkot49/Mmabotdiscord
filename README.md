@@ -5,7 +5,8 @@ This project is an inter-server MMA combat bot for Discord built with **discord.
 ## Features
 
 - Matchmaking with `/fight` including an option to duel an AI
-- Turn based combat with HP and mana management
+- Turn based combat with HP and mana management displayed in an embed
+- Players choose their actions via DM to reduce chat clutter
 - User profiles with leagues, Elo and statistics using `/profile`
 - Clan system with `/clan`
 - Economy commands like `/balance`

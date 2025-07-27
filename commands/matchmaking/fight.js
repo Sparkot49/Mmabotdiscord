@@ -25,7 +25,12 @@ module.exports = {
     const row = new ActionRowBuilder().addComponents(
       new ButtonBuilder().setCustomId('fight_ai').setLabel('Jouer contre une IA').setStyle(ButtonStyle.Primary)
     );
-    const reply = await interaction.reply({ content: 'Ajout\u00e9 \u00e0 la file d\'attente.', components: [row], ephemeral: true, fetchReply: true });
+    const reply = await interaction.reply({
+      content: 'Ajout\u00e9 \u00e0 la file d\'attente. Vous recevrez un DM pour choisir vos actions.',
+      components: [row],
+      ephemeral: true,
+      fetchReply: true
+    });
 
     const collector = reply.createMessageComponentCollector({ filter: i => i.customId === 'fight_ai' && i.user.id === interaction.user.id, time: 15000 });
     collector.on('collect', async i => {
