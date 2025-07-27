@@ -21,6 +21,18 @@ module.exports = {
     .setName('fight')
     .setDescription('Entrer dans la file d\'attente pour combattre'),
   async execute(interaction) {
+    queue.push(interaction.user);
+    const row = new ActionRowBuilder().addComponents(
+      new ButtonBuilder()
+        .setCustomId('fight_ai')
+        .setLabel('Jouer contre une IA')
+        .setStyle(ButtonStyle.Secondary)
+    );
+    await interaction.reply({ content: 'Waiting for an opponent...', components: [row], ephemeral: true });
+    if (queue.length >= 2) {
+      const [p1, p2] = queue.splice(0, 2);
+      startFight(p1, p2);
+    }
     queue.push({ user: interaction.user });
     const row = new ActionRowBuilder().addComponents(
       new ButtonBuilder().setCustomId('fight_ai').setLabel('Jouer contre une IA').setStyle(ButtonStyle.Primary)
