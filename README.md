@@ -9,6 +9,7 @@ This project is an inter-server MMA combat bot for Discord, built with **discord
 - Clan system with `/clan`
 - Economy commands like `/balance`
 - Premium and admin commands
+- Global Elo leaderboard with `/leaderboard`
 
 ## Installation
 
@@ -20,7 +21,7 @@ This project is an inter-server MMA combat bot for Discord, built with **discord
    ```
 4. Start the bot:
    ```bash
-   node index.js
+   npm start
    ```
 
 ## Notes

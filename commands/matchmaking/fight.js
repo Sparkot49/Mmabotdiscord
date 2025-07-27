@@ -1,4 +1,4 @@
-const { SlashCommandBuilder } = require('discord.js');
+const { SlashCommandBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
 const User = require('../../src/models/User');
 
 const queue = [];
@@ -21,7 +21,13 @@ module.exports = {
     .setDescription('Enter matchmaking queue'),
   async execute(interaction) {
     queue.push(interaction.user);
-    await interaction.reply('You have been added to the queue.');
+    const row = new ActionRowBuilder().addComponents(
+      new ButtonBuilder()
+        .setCustomId('fight_ai')
+        .setLabel('Jouer contre une IA')
+        .setStyle(ButtonStyle.Secondary)
+    );
+    await interaction.reply({ content: 'Waiting for an opponent...', components: [row], ephemeral: true });
     if (queue.length >= 2) {
       const [p1, p2] = queue.splice(0, 2);
       startFight(p1, p2);

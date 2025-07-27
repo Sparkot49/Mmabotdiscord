@@ -24,6 +24,14 @@ client.once('ready', () => {
 });
 
 client.on('interactionCreate', async interaction => {
+  if (interaction.isButton()) {
+    if (interaction.customId === 'fight_ai') {
+      const fight = require('./src/fightWithAI');
+      return fight(interaction);
+    }
+    return;
+  }
+
   if (!interaction.isChatInputCommand()) return;
 
   const command = client.commands.get(interaction.commandName);
